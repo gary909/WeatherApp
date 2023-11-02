@@ -1,4 +1,4 @@
-const apiKey = `3e4fc0c79896fe05c7fd9258c07f1819`;
+const apiKey = ``;
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 const locationInput = document.getElementById('locationInput');
@@ -14,6 +14,7 @@ searchButton.addEventListener('click', () => {
     const location = locationInput.value;
     if (location) {
         fetchWeather(location);
+        changeBG(myTemp);
     }
 });
 
@@ -29,8 +30,11 @@ function fetchWeather(location) {
             descriptionElement.textContent = data.weather[0].description;
             iscoldElement.textContent = myTemp;
             if(myTemp < 16){
-                console.log("yep, it's cold")
+        
+                console.log("yep, it's cold");
+                document.body.style.backgroundImage = url('glacierBG.jpg');
             }
+            
         })
         .catch(error => {
             console.error('Error fetching weather data:', error);
