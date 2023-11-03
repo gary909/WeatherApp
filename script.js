@@ -36,7 +36,7 @@ function fetchWeather(location) {
             } else if (myTemp < 12){
                 iscoldElement.textContent = "You're going to need a Jacket!";
             } else if (myTemp < 19){
-                iscoldElement.textContent = "You're going to need a Jacket!";
+                iscoldElement.textContent = "A little bit chilly";
             } else if (myTemp > 20){
                 iscoldElement.textContent = "Summer, yay!  You can go out in a T-Shirt!";
             }
