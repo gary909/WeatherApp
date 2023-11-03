@@ -14,7 +14,6 @@ searchButton.addEventListener('click', () => {
     const location = locationInput.value;
     if (location) {
         fetchWeather(location);
-        changeBG(myTemp);
     }
 });
 
@@ -25,15 +24,18 @@ function fetchWeather(location) {
     .then(response => response.json())
     .then(data => {
             let myTemp = data.main.temp;
+            
             locationElement.textContent = data.name;
             temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
             descriptionElement.textContent = data.weather[0].description;
-            iscoldElement.textContent = myTemp;
+            //iscoldElement.textContent = myTemp;
             if(myTemp < 16){
-        
+                iscoldElement.textContent = "yep, it's cold";
                 console.log("yep, it's cold");
-                document.body.style.backgroundImage = url('glacierBG.jpg');
+                document.body.style.backgroundImage = url('https://plus.unsplash.com/premium_photo-1698846880685-4b8b54c28ad3?auto=format&fit=crop&q=80&w=1113&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             }
+            
+            
             
         })
         .catch(error => {
